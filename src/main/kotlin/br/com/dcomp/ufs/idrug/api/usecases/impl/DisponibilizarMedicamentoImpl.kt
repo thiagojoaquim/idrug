@@ -17,7 +17,7 @@ class DisponibilizarMedicamentoImpl(
     private val medicamentoDisponibilidadeRepositorio: MedicamentoDisponibilidadeRepositorio
 ):DisponibilizarMedicamentoUseCase {
 
-    override fun disponibilizar(idFarmacia: Long, idMedicamento: Long, quantidade : Int, dataValidade : LocalDate): MedicamentoDisponibilidade {
+    override fun disponibilizar(idFarmacia: Long, idMedicamento: Long, quantidade : Int): MedicamentoDisponibilidade {
         val farmacia = farmaciaRepositorio.findById(idFarmacia)
         if (farmacia.isEmpty)
             throw NotFoundException(Erro.FARMACIA_NAO_ENCONTRADA)
