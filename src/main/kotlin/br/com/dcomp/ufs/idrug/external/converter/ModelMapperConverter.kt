@@ -7,12 +7,17 @@ import org.modelmapper.config.Configuration
 
 @Converter
 class ModelMapperConverter : IdrugConverter {
+
+
     private val mapper : ModelMapper = criarMapperParaObjetosImutaveis()
 
     private fun criarMapperParaObjetosImutaveis(): ModelMapper {
 
         val mapper = ModelMapper()
         mapper.configuration.setFieldAccessLevel(Configuration.AccessLevel.PRIVATE).setFieldMatchingEnabled(true)
+        mapper.addConverter(PacienteConverter.ToPaciente())
+        mapper.addConverter(PacienteConverter.ToPacienteDTO())
+        mapper.addConverter(UsuarioConverter.ToUsuarioResponseDTO())
         return mapper
     }
 
