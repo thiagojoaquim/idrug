@@ -73,7 +73,7 @@ class WebSecurityConfig(
         web!!.ignoring().antMatchers(HttpMethod.POST, "/autenticacao/logar")
             //.antMatchers(HttpMethod.POST, "/api/autenticacao/logar")
             .antMatchers(HttpMethod.POST, "/paciente/registrar")
-            .antMatchers(*SWAGGER_AUTH_WHITELIST)
+            .antMatchers(HttpMethod.GET, *SWAGGER_AUTH_WHITELIST)
     }
 
 
