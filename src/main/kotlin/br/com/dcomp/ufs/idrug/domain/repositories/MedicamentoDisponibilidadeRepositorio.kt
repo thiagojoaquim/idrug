@@ -10,4 +10,5 @@ import java.util.*
 interface MedicamentoDisponibilidadeRepositorio : JpaRepository<MedicamentoDisponibilidade, Long> {
 
     fun findByMedicamentoIdAndFarmaciaId(medicamentoId : Long, farmaciaId : Long) : Optional<MedicamentoDisponibilidade>
+    fun findByMedicamentoId(medicamentoId: Long) : Optional<MedicamentoDisponibilidade>
 }

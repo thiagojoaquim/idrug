@@ -37,8 +37,12 @@ class WebSecurityConfig(
         "/swagger-resources/**",
         "/swagger-ui/**",
         "/swagger-ui.html",
-        "/webjars/**"
+        "/webjars/**",
+        "**/v1/docs/**",
+        "/index.html**"
     )
+
+
 
     @Autowired
     fun configureGlobal(auth: AuthenticationManagerBuilder) {
@@ -69,7 +73,7 @@ class WebSecurityConfig(
         web!!.ignoring().antMatchers(HttpMethod.POST, "/autenticacao/logar")
             //.antMatchers(HttpMethod.POST, "/api/autenticacao/logar")
             .antMatchers(HttpMethod.POST, "/paciente/registrar")
-            .antMatchers(HttpMethod.GET, *SWAGGER_AUTH_WHITELIST)
+            .antMatchers(*SWAGGER_AUTH_WHITELIST)
     }
 
 
